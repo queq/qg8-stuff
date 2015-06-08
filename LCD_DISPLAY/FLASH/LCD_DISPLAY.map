@@ -1,0 +1,189 @@
+*** EVALUATION ***
+PROGRAM "LCD_DISPLAY.abs"
+
+*********************************************************************************************
+TARGET SECTION
+---------------------------------------------------------------------------------------------
+Processor   : Freescale HC08
+Memory Model: SMALL
+File Format : ELF\DWARF 2.0
+Linker      : SmartLinker V-5.0.51 Build 14019, Jan 20 2014
+
+*********************************************************************************************
+FILE SECTION
+---------------------------------------------------------------------------------------------
+main_asm.obj                            Model: SMALL,         Lang: Assembler
+
+*********************************************************************************************
+STARTUP SECTION
+---------------------------------------------------------------------------------------------
+Entry point: 0xE000 (_Startup)
+
+*********************************************************************************************
+SECTION-ALLOCATION SECTION
+Section Name                    Size  Type     From       To       Segment
+---------------------------------------------------------------------------------------------
+.init                            254     R     0xE000     0xE0FD   ROM
+MY_ZEROPAGE                        5   R/W       0x60       0x64   Z_RAM
+.stack                            64   R/W      0x100      0x13F   RAM
+.vectSeg0_vect                     2     R     0xFFFE     0xFFFF   .vectSeg0
+
+Summary of section sizes per section type:
+READ_ONLY (R):         100 (dec:      256)
+READ_WRITE (R/W):       45 (dec:       69)
+
+*********************************************************************************************
+VECTOR-ALLOCATION SECTION
+    Address     InitValue   InitFunction
+---------------------------------------------------------------------------------------------
+     0xFFFE        0xE000   _Startup
+
+*********************************************************************************************
+OBJECT-ALLOCATION SECTION
+     Name               Module                 Addr   hSize   dSize     Ref    Section   RLIB
+---------------------------------------------------------------------------------------------
+MODULE:                 -- main_asm.obj --
+- PROCEDURES:
+     _Startup                                  E000      26      38       0   .init       
+     main                                      E000       0       0       0   .init       
+     stop                                      E026       2       2       0   .init       
+     strout                                    E028       5       5       2   .init       
+     sloop                                     E02D       A      10       0   .init       
+     sdone                                     E037       1       1       0   .init       
+     datout                                    E038       5       5       1   .init       
+     cmdout                                    E03D       2       2       3   .init       
+     dcout                                     E03F       B      11       0   .init       
+     nibout                                    E04A      18      24       3   .init       
+     init                                      E062       3       3       1   .init       
+     idel1                                     E065       F      15       0   .init       
+     idel2                                     E074       F      15       0   .init       
+     idel3                                     E083      1F      31       0   .init       
+     iniout                                    E0A2       6       6       4   .init       
+     busywt                                    E0A8       5       5       2   .init       
+     bloop                                     E0AD      12      18       0   .init       
+     del40u                                    E0BF       3       3       1   .init       
+     u1                                        E0C2       5       5       0   .init       
+     del1m                                     E0C7       3       3       2   .init       
+     m1                                        E0CA       3       3       0   .init       
+     m0                                        E0CD       9       9       0   .init       
+     str1                                      E0D6      18      24       1   .init       
+     VAR00001                                  E0EE       1       1       0   .init       
+     str2                                      E0EF       E      14       1   .init       
+     VAR00002                                  E0FD       1       1       0   .init       
+- VARIABLES:
+     delay2                                      60       1       1       6   MY_ZEROPAGE 
+     delay1                                      61       1       1       2   MY_ZEROPAGE 
+     delay0                                      62       1       1       4   MY_ZEROPAGE 
+     nibdat                                      63       1       1       3   MY_ZEROPAGE 
+     prtdat                                      64       1       1       2   MY_ZEROPAGE 
+- LABELS:
+     __SEG_END_SSTACK                           140       0       0       1               
+
+*********************************************************************************************
+MODULE STATISTIC
+  Name                                      Data   Code  Const
+---------------------------------------------------------------------------------------------
+  main_asm.obj                                 5    254      0
+  other                                       64      2      0
+
+*********************************************************************************************
+SECTION USE IN OBJECT-ALLOCATION SECTION
+---------------------------------------------------------------------------------------------
+SECTION: ".init"
+  main _Startup stop strout sloop sdone datout cmdout dcout nibout init idel1 
+  idel2 idel3 iniout busywt bloop del40u u1 del1m m1 m0 str1 VAR00001 str2 
+  VAR00002 
+SECTION: "MY_ZEROPAGE"
+  delay2 delay1 delay0 nibdat prtdat 
+
+*********************************************************************************************
+OBJECT LIST SORTED BY ADDRESS
+     Name                                      Addr   hSize   dSize     Ref    Section   RLIB
+---------------------------------------------------------------------------------------------
+     delay2                                      60       1       1       6   MY_ZEROPAGE 
+     delay1                                      61       1       1       2   MY_ZEROPAGE 
+     delay0                                      62       1       1       4   MY_ZEROPAGE 
+     nibdat                                      63       1       1       3   MY_ZEROPAGE 
+     prtdat                                      64       1       1       2   MY_ZEROPAGE 
+     main                                      E000       0       0       0   .init       
+     _Startup                                  E000      26      38       0   .init       
+     stop                                      E026       2       2       0   .init       
+     strout                                    E028       5       5       2   .init       
+     sloop                                     E02D       A      10       0   .init       
+     sdone                                     E037       1       1       0   .init       
+     datout                                    E038       5       5       1   .init       
+     cmdout                                    E03D       2       2       3   .init       
+     dcout                                     E03F       B      11       0   .init       
+     nibout                                    E04A      18      24       3   .init       
+     init                                      E062       3       3       1   .init       
+     idel1                                     E065       F      15       0   .init       
+     idel2                                     E074       F      15       0   .init       
+     idel3                                     E083      1F      31       0   .init       
+     iniout                                    E0A2       6       6       4   .init       
+     busywt                                    E0A8       5       5       2   .init       
+     bloop                                     E0AD      12      18       0   .init       
+     del40u                                    E0BF       3       3       1   .init       
+     u1                                        E0C2       5       5       0   .init       
+     del1m                                     E0C7       3       3       2   .init       
+     m1                                        E0CA       3       3       0   .init       
+     m0                                        E0CD       9       9       0   .init       
+     str1                                      E0D6      18      24       1   .init       
+     VAR00001                                  E0EE       1       1       0   .init       
+     str2                                      E0EF       E      14       1   .init       
+     VAR00002                                  E0FD       1       1       0   .init       
+
+*********************************************************************************************
+UNUSED-OBJECTS SECTION
+---------------------------------------------------------------------------------------------
+
+*********************************************************************************************
+COPYDOWN SECTION
+---------------------------------------------------------------------------------------------
+
+*********************************************************************************************
+OBJECT-DEPENDENCIES SECTION
+---------------------------------------------------------------------------------------------
+_Startup                  USES __SEG_END_SSTACK init str1 strout str2 
+strout                    USES cmdout 
+sloop                     USES datout 
+dcout                     USES nibout busywt 
+nibout                    USES nibdat prtdat 
+init                      USES delay2 
+idel1                     USES del1m delay2 iniout 
+idel2                     USES del1m delay2 iniout 
+idel3                     USES del40u delay2 iniout busywt cmdout 
+iniout                    USES nibout 
+del40u                    USES delay0 
+u1                        USES delay0 
+del1m                     USES delay1 
+m1                        USES delay0 
+m0                        USES delay0 delay1 
+
+*********************************************************************************************
+DEPENDENCY TREE
+*********************************************************************************************
+ main and _Startup Group
+ | 
+ +- main                
+ |    
+ +- _Startup            
+    | 
+    +- init                
+    |    
+    +- str1                
+    |    
+    +- strout              
+    |  | 
+    |  +- cmdout              
+    |       
+    +- str2                
+         
+*********************************************************************************************
+STATISTIC SECTION
+---------------------------------------------------------------------------------------------
+
+ExeFile:
+--------
+Number of blocks to be downloaded: 2
+Total size of all blocks to be downloaded: 256
+

@@ -1,0 +1,138 @@
+*** EVALUATION ***
+PROGRAM "7_SEG_LED.abs"
+
+*********************************************************************************************
+TARGET SECTION
+---------------------------------------------------------------------------------------------
+Processor   : Freescale HC08
+Memory Model: SMALL
+File Format : ELF\DWARF 2.0
+Linker      : SmartLinker V-5.0.51 Build 14019, Jan 20 2014
+
+*********************************************************************************************
+FILE SECTION
+---------------------------------------------------------------------------------------------
+main_asm.obj                            Model: SMALL,         Lang: Assembler
+
+*********************************************************************************************
+STARTUP SECTION
+---------------------------------------------------------------------------------------------
+Entry point: 0xE032 (_Startup)
+
+*********************************************************************************************
+SECTION-ALLOCATION SECTION
+Section Name                    Size  Type     From       To       Segment
+---------------------------------------------------------------------------------------------
+.init                            169     R     0xE000     0xE0A8   ROM
+.stack                            64   R/W      0x100      0x13F   RAM
+.vectSeg0_vect                     2     R     0xFFDA     0xFFDB   .vectSeg0
+.vectSeg1_vect                     4     R     0xFFFC     0xFFFF   .vectSeg1
+
+Summary of section sizes per section type:
+READ_ONLY (R):          AF (dec:      175)
+READ_WRITE (R/W):       40 (dec:       64)
+
+*********************************************************************************************
+VECTOR-ALLOCATION SECTION
+    Address     InitValue   InitFunction
+---------------------------------------------------------------------------------------------
+     0xFFDA        0xE000   SERV_KBI
+     0xFFFC        0xE000   SERV_KBI
+     0xFFFE        0xE032   _Startup
+
+*********************************************************************************************
+OBJECT-ALLOCATION SECTION
+     Name               Module                 Addr   hSize   dSize     Ref    Section   RLIB
+---------------------------------------------------------------------------------------------
+MODULE:                 -- main_asm.obj --
+- PROCEDURES:
+     SERV_KBI                                  E000       D      13       0   .init       
+     BTN_DISP                                  E00D       6       6       0   .init       
+     BTN_L                                     E013       9       9       0   .init       
+     SET_LOW_LIMIT                             E01C       6       6       0   .init       
+     BTN_R                                     E022       9       9       0   .init       
+     SET_HIGH_LIMIT                            E02B       6       6       0   .init       
+     END_INT                                   E031       1       1       0   .init       
+     _Startup                                  E032      3B      59       0   .init       
+     main                                      E032       0       0       0   .init       
+     mainLoop                                  E06D       2       2       0   .init       
+     prnt_disp                                 E06F      10      16       0   .init       
+     retardo                                   E07F       8       8       0   .init       
+     loop1                                     E087       D      13       0   .init       
+     loop2                                     E094       A      10       0   .init       
+     retardo50                                 E09E       2       2       2   .init       
+     rt1                                       E0A0       3       3       0   .init       
+     rt2                                       E0A3       6       6       0   .init       
+- VARIABLES:
+- LABELS:
+     __SEG_END_SSTACK                           140       0       0       1               
+
+*********************************************************************************************
+MODULE STATISTIC
+  Name                                      Data   Code  Const
+---------------------------------------------------------------------------------------------
+  main_asm.obj                                 0    169      0
+  other                                       64      6      0
+
+*********************************************************************************************
+SECTION USE IN OBJECT-ALLOCATION SECTION
+---------------------------------------------------------------------------------------------
+SECTION: ".init"
+  SERV_KBI BTN_DISP BTN_L SET_LOW_LIMIT BTN_R SET_HIGH_LIMIT END_INT main 
+  _Startup mainLoop prnt_disp retardo loop1 loop2 retardo50 rt1 rt2 
+
+*********************************************************************************************
+OBJECT LIST SORTED BY ADDRESS
+     Name                                      Addr   hSize   dSize     Ref    Section   RLIB
+---------------------------------------------------------------------------------------------
+     SERV_KBI                                  E000       D      13       0   .init       
+     BTN_DISP                                  E00D       6       6       0   .init       
+     BTN_L                                     E013       9       9       0   .init       
+     SET_LOW_LIMIT                             E01C       6       6       0   .init       
+     BTN_R                                     E022       9       9       0   .init       
+     SET_HIGH_LIMIT                            E02B       6       6       0   .init       
+     END_INT                                   E031       1       1       0   .init       
+     main                                      E032       0       0       0   .init       
+     _Startup                                  E032      3B      59       0   .init       
+     mainLoop                                  E06D       2       2       0   .init       
+     prnt_disp                                 E06F      10      16       0   .init       
+     retardo                                   E07F       8       8       0   .init       
+     loop1                                     E087       D      13       0   .init       
+     loop2                                     E094       A      10       0   .init       
+     retardo50                                 E09E       2       2       2   .init       
+     rt1                                       E0A0       3       3       0   .init       
+     rt2                                       E0A3       6       6       0   .init       
+
+*********************************************************************************************
+UNUSED-OBJECTS SECTION
+---------------------------------------------------------------------------------------------
+
+*********************************************************************************************
+COPYDOWN SECTION
+---------------------------------------------------------------------------------------------
+
+*********************************************************************************************
+OBJECT-DEPENDENCIES SECTION
+---------------------------------------------------------------------------------------------
+_Startup                  USES __SEG_END_SSTACK 
+loop1                     USES retardo50 
+loop2                     USES retardo50 
+
+*********************************************************************************************
+DEPENDENCY TREE
+*********************************************************************************************
+ main and _Startup Group
+ | 
+ +- main                
+ |    
+ +- _Startup            
+      
+*********************************************************************************************
+STATISTIC SECTION
+---------------------------------------------------------------------------------------------
+
+ExeFile:
+--------
+Number of blocks to be downloaded: 3
+Total size of all blocks to be downloaded: 175
+
